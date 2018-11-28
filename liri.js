@@ -13,17 +13,21 @@ var parameter = inputString[3];
 // var outPutData;
 
 if (command === 'concert-this') {
+    console.log(parameter);
     BandsInTown(parameter);
 };
 
 
 function BandsInTown() {
     var artist = parameter;
-    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"; 
+      
 
     $.ajax({
-        url: queryURL,
-        method: "GET"
+        url: artist + "/events?app_id=codingbootcamp",
+        baseURL = "https://rest.bandsintown.com/artists/",
+        method: "get",
+        responseType: 'json',
+    axios.get('')
     }).then(function (response) {
         console.log("Venue: " + response.venue.name);
         console.log("Venue Location: " + response.venue.city + "," + response.venue.country);
