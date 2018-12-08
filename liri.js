@@ -18,7 +18,15 @@ var moment = require("moment");
 // input handler
 var nodeArgs = process.argv;
 var command = nodeArgs[2];
-var parameter = nodeArgs[3];
+var parameter = "";
+
+for (var i= 3; i < nodeArgs.length; i++) {
+    if (i > 3 && i < nodeArgs.length) {
+        parameter = parameter + "+" +  nodeArgs[i];
+    } else {
+        parameter += nodeArgs[i];
+    }
+}
 
 
 // command logic
@@ -32,6 +40,11 @@ if (command === 'concert-this') {
 } else if (command === 'movie-this') {
     console.log(parameter);
     OMDB(parameter);
+} else if (command === 'do-what-it-says') {
+    console.log(parameter);
+    callSomething(parameter);
+} else {
+    console.log("Give me a proper command!");
 }
 
 
@@ -76,7 +89,10 @@ function OMDB() {
             console.log("Title: " + response.data.Title);
             console.log("Release Year: " + response.data.Year);
             console.log("IMDB Rating: " + response.data.imdbRating);
-
+            console.log("Country: " + response.data.Country);
+            console.log("Language: " + response.data.Language);
+            console.log("Plot: " + response.data.Plot);
+            console.log("Actors: " + response.data.Actors);
         }
     );
 }
