@@ -3,8 +3,8 @@
 require("dotenv").config();
 
 // // spotify variables
-// var spotify = require("./keys.js");
-var Spotify = require('node-spotify-api');
+const keys = require("keys.js");
+var Spotify = require("node-spotify-api");
 // spotify = new Spotify(keys.spotify);
 
 
@@ -49,10 +49,10 @@ if (command === 'concert-this') {
 
 
 // functions
-
+var spotify = new Spotify(keys.spotify);
 function spotify() {
-    var spotify = new Spotify(keys.spotify);
-    spotify.search({ type: 'track', query: 'All the Small Things', limit: 1 }, function(err, data) {
+    
+    spotify.search({ type: 'track', query: parameter, limit: 1 }, function(err, data) {
         if (err) {
             return console.log('Error occured: ' + err);
         }
