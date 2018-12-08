@@ -12,10 +12,13 @@ var Spotify = require('node-spotify-api');
 var axios = require("axios");
 var moment = require("moment");
 
+// OMDB Variables
+
+
 // input handler
-var inputString = process.argv;
-var command = inputString[2];
-var parameter = inputString[3];
+var nodeArgs = process.argv;
+var command = nodeArgs[2];
+var parameter = nodeArgs[3];
 
 
 // command logic
@@ -26,6 +29,9 @@ if (command === 'concert-this') {
 } else if (command === 'spotify-this-song') {
     console.log(parameter);
     spotify(parameter);
+} else if (command === 'movie-this') {
+    console.log(parameter);
+    OMDB(parameter);
 }
 
 
@@ -57,3 +63,20 @@ function BandsInTown() {
     });
 };
 
+
+function OMDB() {
+    var movieName = parameter;
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+    // This line is just to help us debug against the actual URL.
+    console.log(queryUrl);
+
+    axios.get(queryUrl).then(
+        function (response) {
+            console.log("Title: " + response.data.Title);
+            console.log("Release Year: " + response.data.Year);
+            console.log("IMDB Rating: " + response.data.imdbRating);
+
+        }
+    );
+}
