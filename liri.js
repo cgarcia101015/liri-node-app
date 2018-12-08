@@ -1,12 +1,12 @@
 // variables and required packages
 
-require("dotenv").config();
+require('dotenv').config();
 
 // // spotify variables
 const keys = require("keys.js");
 var Spotify = require("node-spotify-api");
 // spotify = new Spotify(keys.spotify);
-
+console.log(process.env.SPOTIFY_ID);
 
 // BandsInTown Variables
 var axios = require("axios");
