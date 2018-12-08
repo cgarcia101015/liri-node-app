@@ -3,9 +3,9 @@
 require('dotenv').config();
 
 // // spotify variables
-const keys = require("keys.js");
+const keys = require('./keys.js');
 var Spotify = require("node-spotify-api");
-// spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 console.log(process.env.SPOTIFY_ID);
 
 // BandsInTown Variables
@@ -31,34 +31,23 @@ for (var i= 3; i < nodeArgs.length; i++) {
 
 // command logic
 
-if (command === 'concert-this') {
-    // console.log(parameter);
-    BandsInTown(parameter);
-} else if (command === 'spotify-this-song') {
-    console.log(parameter);
-    spotify(parameter);
-} else if (command === 'movie-this') {
-    console.log(parameter);
-    OMDB(parameter);
-} else if (command === 'do-what-it-says') {
-    console.log(parameter);
-    callSomething(parameter);
-} else {
-    console.log("Give me a proper command!");
-}
 
 
 // functions
-var spotify = new Spotify(keys.spotify);
-function spotify() {
-    
-    spotify.search({ type: 'track', query: parameter, limit: 1 }, function(err, data) {
-        if (err) {
-            return console.log('Error occured: ' + err);
-        }
-    console.log(data);
-    });
-};
+// var spotify = new Spotify(keys.spotify);
+
+function spotifyx() {
+    console.log("hello");
+    spotify
+        .search({ type: 'track', query: parameter, limit:1 })
+        .then(function (response) {
+            console.log(response.tracks);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+}
 
    
 
@@ -95,4 +84,22 @@ function OMDB() {
             console.log("Actors: " + response.data.Actors);
         }
     );
+}
+
+
+
+if (command === 'concert-this') {
+    // console.log(parameter);
+    BandsInTown(parameter);
+} else if (command === 'spotify-this-song') {
+    // console.log(parameter);
+    spotifyx();
+} else if (command === 'movie-this') {
+    console.log(parameter);
+    OMDB(parameter);
+} else if (command === 'do-what-it-says') {
+    console.log(parameter);
+    callSomething(parameter);
+} else {
+    console.log("Give me a proper command!");
 }
