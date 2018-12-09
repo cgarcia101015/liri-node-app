@@ -1,6 +1,7 @@
 // variables and required packages
 
 require('dotenv').config();
+var fs = require("fs");
 
 // // spotify variables
 const keys = require('./keys.js');
@@ -29,23 +30,61 @@ for (var i= 3; i < nodeArgs.length; i++) {
 }
 
 
-// command logic
-
-
-
-// functions
-// var spotify = new Spotify(keys.spotify);
 
 function spotifyx() {
-    console.log("hello");
-    spotify
+    if (!parameter) {
+        parameter = "the sign";
+        var divider = "\n------------------------------------------------------------\n\n";
+        spotify
         .search({ type: 'track', query: parameter, limit:1 })
         .then(function (response) {
-            console.log(response.tracks);
-        })
+            console.log("\n===============================================\n")
+            console.log("Artists: " + response.tracks.items[0].artists[0].name);
+            console.log("Name: " + response.tracks.items[0].name);
+            console.log("Preview URL: " + response.tracks.items[0].preview_url);
+            console.log("Album Name: " + response.tracks.items[0].album.name);
+
+            var spotifyData = [
+                "Artists: " + response.tracks.items[0].artists[0].name,
+                "Name: " + response.tracks.items[0].name,
+                "Preview URL: " + response.tracks.items[0].preview_url,
+                "Album Name: " + response.tracks.items[0].album.name
+              ].join("\n\n");
+    
+            fs.appendFile("log.txt", spotifyData + divider, function(err) {
+                if (err) throw err;
+                console.log(spotifyData);
+        });
+    })
         .catch(function (err) {
             console.log(err);
         });
+    } else {
+    spotify
+        .search({ type: 'track', query: parameter, limit:1 })
+        .then(function (response) {
+            console.log("\n===============================================\n")
+            console.log("Artists: " + response.tracks.items[0].artists[0].name);
+            console.log("Name: " + response.tracks.items[0].name);
+            console.log("Preview URL: " + response.tracks.items[0].preview_url);
+            console.log(response.tracks.items[0].album.name);
+
+            var spotifyData = [
+                "Artists: " + response.tracks.items[0].artists[0].name,
+                "Name: " + response.tracks.items[0].name,
+                "Preview URL: " + response.tracks.items[0].preview_url,
+                "Album Name: " + response.tracks.items[0].album.name
+              ].join("\n\n");
+    
+            fs.appendFile("log.txt", spotifyData + divider, function(err) {
+                if (err) throw err;
+                console.log(spotifyData);
+        });
+    })
+        .catch(function (err) {
+            console.log(err);
+        });
+    };
 
 }
 
@@ -54,6 +93,7 @@ function spotifyx() {
 function BandsInTown() {
     var artist = parameter;
     var queryURL = "https://rest.bandsintown.com/artists/" + artist +  "/events?app_id=codingbootcamp";
+    var divider = "\n------------------------------------------------------------\n\n";
 
     axios.get(queryURL).then(
         function (response) {
@@ -62,13 +102,26 @@ function BandsInTown() {
         var dateTime = response.data[0].datetime;
         dateTime = moment(dateTime).format("dddd, MMMM Do YYYY, h:mm a");
         console.log("Date: " + dateTime );
+
+        var bandsData = [
+            "Venue: " + response.data[0].venue.name,
+            "Venue Location: " + response.data[0].venue.city + "," + response.data[0].venue.country,
+            "Date: " + dateTime,
+          ].join("\n\n");
+
+        fs.appendFile("log.txt", bandsData + divider, function(err) {
+            if (err) throw err;
+            console.log(bandsData);
     });
+});
 };
 
 
 function OMDB() {
     var movieName = parameter;
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    var divider = "\n------------------------------------------------------------\n\n";
+
 
     // This line is just to help us debug against the actual URL.
     console.log(queryUrl);
@@ -82,10 +135,33 @@ function OMDB() {
             console.log("Language: " + response.data.Language);
             console.log("Plot: " + response.data.Plot);
             console.log("Actors: " + response.data.Actors);
+
+            var movieData = [
+                "Title: " + response.data.Title,
+                "Release Year: " + response.data.Year,
+                "IMDB Rating: " + response.data.imdbRating,
+                "Country: " + response.data.Country,
+                "Language: " + response.data.Language,
+                "Plot: " + response.data.Plot,
+                "Actors: " + response.data.Actors,
+              ].join("\n\n");
+    
+            fs.appendFile("log.txt", movieData + divider, function(err) {
+                if (err) throw err;
+                console.log(movieData);
+        });
         }
     );
 }
 
+// function randomCommand() {
+//     fs.readFile("random.txt", "utf8", funciton(err, data) {
+//         if (err) {
+//           console.log(err);
+//         }
+
+//       });
+// };
 
 
 if (command === 'concert-this') {
@@ -99,7 +175,7 @@ if (command === 'concert-this') {
     OMDB(parameter);
 } else if (command === 'do-what-it-says') {
     console.log(parameter);
-    callSomething(parameter);
+    randomCommand(parameter);
 } else {
     console.log("Give me a proper command!");
 }

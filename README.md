@@ -17,5 +17,5 @@ movie-this <your search query>
   Will search and display movie data
 
 
-do-what-it-says <your search query>
+do-what-it-says 
   Will run one of the above commands using a default search query
