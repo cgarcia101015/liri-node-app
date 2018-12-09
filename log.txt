@@ -5,21 +5,6 @@ Venue Location: Detroit,United States
 Date: Saturday, December 29th 2018, 8:00 pm
 ------------------------------------------------------------
 
-Title: The Terminator
-
-Release Year: 1984
-
-IMDB Rating: 8.0
-
-Country: UK, USA
-
-Language: English, Spanish
-
-Plot: A seemingly indestructible android is sent from 2029 to 1984 to assassinate a waitress, whose unborn son will lead humanity in a war against the machines, while a soldier from that war is sent to protect her at all costs.
-
-Actors: Arnold Schwarzenegger, Michael Biehn, Linda Hamilton, Paul Winfield
-------------------------------------------------------------
-
 Artists: Harry Styles
 
 Name: Sign of the Times
@@ -29,10 +14,46 @@ Preview URL: https://p.scdn.co/mp3-preview/af237206f611b722f48620ece049aff3b8650
 Album Name: Harry Styles
 ------------------------------------------------------------
 
-Artists: Callalily
+Artists: Cardi B
 
-Name: Magbalik
+Name: Bodak Yellow
 
-Preview URL: https://p.scdn.co/mp3-preview/e8b8a58f837c096ee4dbc0045824bac95a609059?cid=08ed08fb5e044421813e9c183a7d65a0
+Preview URL: https://p.scdn.co/mp3-preview/cab6e91217590b37cc254585f3f951c5a5280375?cid=08ed08fb5e044421813e9c183a7d65a0
 
-Album Name: Destination XYZundefined
+Album Name: Invasion of PrivacyundefinedTitle: Mr. Nobody
+
+Release Year: 2009
+
+IMDB Rating: 7.9
+
+Country: Belgium, Germany, Canada, France, USA, UK
+
+Language: English, Mohawk
+
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+------------------------------------------------------------
+
+Title: Die Hard
+
+Release Year: 1988
+
+IMDB Rating: 8.2
+
+Country: USA
+
+Language: English, German, Italian, Japanese
+
+Plot: John McClane, officer of the NYPD, tries to save his wife Holly Gennaro and several others that were taken hostage by German terrorist Hans Gruber during a Christmas party at the Nakatomi Plaza in Los Angeles.
+
+Actors: Bruce Willis, Bonnie Bedelia, Reginald VelJohnson, Paul Gleason
+------------------------------------------------------------
+
+Artists: Backstreet Boys
+
+Name: I Want It That Way
+
+Preview URL: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=08ed08fb5e044421813e9c183a7d65a0
+
+Album Name: The Hits--Chapter Oneundefined

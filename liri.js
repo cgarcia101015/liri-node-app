@@ -53,7 +53,6 @@ function spotifyx() {
     
             fs.appendFile("log.txt", spotifyData + divider, function(err) {
                 if (err) throw err;
-                console.log(spotifyData);
         });
     })
         .catch(function (err) {
@@ -78,7 +77,7 @@ function spotifyx() {
     
             fs.appendFile("log.txt", spotifyData + divider, function(err) {
                 if (err) throw err;
-                console.log(spotifyData);
+                
         });
     })
         .catch(function (err) {
@@ -111,14 +110,15 @@ function BandsInTown() {
 
         fs.appendFile("log.txt", bandsData + divider, function(err) {
             if (err) throw err;
-            console.log(bandsData);
+            
     });
 });
 };
 
 
 function OMDB() {
-    var movieName = parameter;
+    if (!parameter) {
+        var movieName = 'Mr Nobody';
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     var divider = "\n------------------------------------------------------------\n\n";
 
@@ -148,20 +148,62 @@ function OMDB() {
     
             fs.appendFile("log.txt", movieData + divider, function(err) {
                 if (err) throw err;
-                console.log(movieData);
+                
         });
         }
     );
-}
+    } else {
+    var movieName = parameter;
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    var divider = "\n------------------------------------------------------------\n\n";
 
-// function randomCommand() {
-//     fs.readFile("random.txt", "utf8", funciton(err, data) {
-//         if (err) {
-//           console.log(err);
-//         }
 
-//       });
-// };
+    axios.get(queryUrl).then(
+        function (response) {
+            console.log("Title: " + response.data.Title);
+            console.log("Release Year: " + response.data.Year);
+            console.log("IMDB Rating: " + response.data.imdbRating);
+            console.log("Country: " + response.data.Country);
+            console.log("Language: " + response.data.Language);
+            console.log("Plot: " + response.data.Plot);
+            console.log("Actors: " + response.data.Actors);
+
+            var movieData = [
+                "Title: " + response.data.Title,
+                "Release Year: " + response.data.Year,
+                "IMDB Rating: " + response.data.imdbRating,
+                "Country: " + response.data.Country,
+                "Language: " + response.data.Language,
+                "Plot: " + response.data.Plot,
+                "Actors: " + response.data.Actors,
+              ].join("\n\n");
+    
+            fs.appendFile("log.txt", movieData + divider, function(err) {
+                if (err) throw err;
+                
+        });
+        }
+    );
+    };
+};
+
+function randomCommand() {
+    fs.readFile("random.txt", "utf8", function(error, data){
+        // If the code experiences any errors it will log the error to the console.
+      if (error) {
+        return console.log(error);
+      } 
+      
+    //   console.log(data)
+
+      var dataArr = data.split(",");
+
+      var readIT = dataArr[1].replace (/"/g,'');
+      console.log(readIT)
+
+      spotifyx(parameter = readIT)
+    })
+};
 
 
 if (command === 'concert-this') {
