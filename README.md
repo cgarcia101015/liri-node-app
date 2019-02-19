@@ -19,3 +19,5 @@ movie-this <your search query>
 
 do-what-it-says 
   Will run one of the above commands using a default search query
+
+Click the link for a video demo: https://drive.google.com/file/d/1dMO7UgIJ_bkgHLTX5C_iT7d60UtU7jla/view
