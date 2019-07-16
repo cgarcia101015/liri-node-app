@@ -56,4 +56,40 @@ Name: I Want It That Way
 
 Preview URL: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=08ed08fb5e044421813e9c183a7d65a0
 
-Album Name: The Hits--Chapter Oneundefined
+Album Name: The Hits--Chapter OneundefinedVenue: Accorhotels Arena
+
+Venue Location: Paris,France
+
+Date: Friday, March 8th 2019, 7:00 pm
+------------------------------------------------------------
+
+Artists: Queen
+
+Name: Bohemian Rhapsody - Remastered 2011
+
+Preview URL: null
+
+Album Name: A Night At The Opera (Deluxe Remastered Version)undefinedArtists: Harry Styles
+
+Name: Sign of the Times
+
+Preview URL: https://p.scdn.co/mp3-preview/af237206f611b722f48620ece049aff3b8650e77?cid=08ed08fb5e044421813e9c183a7d65a0
+
+Album Name: Harry Styles
+------------------------------------------------------------
+
+Title: Die Hard
+
+Release Year: 1988
+
+IMDB Rating: 8.2
+
+Country: USA
+
+Language: English, German, Italian, Japanese
+
+Plot: John McClane, officer of the NYPD, tries to save his wife Holly Gennaro and several others that were taken hostage by German terrorist Hans Gruber during a Christmas party at the Nakatomi Plaza in Los Angeles.
+
+Actors: Bruce Willis, Bonnie Bedelia, Reginald VelJohnson, Paul Gleason
+------------------------------------------------------------
+
